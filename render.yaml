@@ -14,7 +14,7 @@ services:
         value: 8888
       - key: SPRING_DATASOURCE_URL
         sync: false
-        value: jdbc:mysql://localhost:3306/snvec_student_platform
+        value: jdbc:mysql://xxxxxx.tidbcloud.com:4000/snvec_student_platform?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
       - key: SPRING_DATASOURCE_USERNAME
         sync: false
         value: root
