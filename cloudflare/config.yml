@@ -1,0 +1,14 @@
+# Cloudflare Tunnel 配置文件
+# 使用方式: cloudflared tunnel run --config config.yml student-platform
+
+tunnel: student-platform
+credentials-file: ~/.cloudflared/student-platform.json
+
+ingress:
+  # 前端 + API 都走后端 Spring Boot
+  - hostname: student-platform.trycloudflare.com
+    service: http://localhost:8080
+    originRequest:
+      noTLSVerify: true
+  #  catch-all
+  - service: http_status:404

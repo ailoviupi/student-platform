@@ -6,7 +6,7 @@
 server:
   port: ${SERVER_PORT:8888}
   servlet:
-    context-path: /api
+    context-path: /
 
 spring:
   # 禁用不需要的自动配置（免费层无 Redis/RabbitMQ）
@@ -32,6 +32,13 @@ spring:
   # 关闭缓存（无 Redis）
   cache:
     type: simple
+  
+  # 静态资源（前端文件）
+  web:
+    resources:
+      static-locations: classpath:/static/
+      cache:
+        period: 3600
   
   servlet:
     multipart:

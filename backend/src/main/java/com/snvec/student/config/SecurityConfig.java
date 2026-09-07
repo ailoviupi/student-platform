@@ -49,7 +49,11 @@ public class SecurityConfig {
                 "/auth/register",
                 "/auth/captcha",
                 "/actuator/**",
-                "/favicon.ico"
+                "/static/**",
+                "/favicon.ico",
+                "/",
+                "/index.html",
+                "/assets/**"
             ).permitAll()
             .anyRequest().authenticated()
             .and()
