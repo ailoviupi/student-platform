@@ -1,11 +1,9 @@
 services:
   - type: web
     name: student-platform-backend
-    env: java
+    env: docker
     plan: free
     rootDir: backend
-    buildCommand: mvn clean package -DskipTests
-    startCommand: java -Dserver.port=$PORT -Dspring.profiles.active=prod -jar target/student-platform-1.0.0.jar
     healthCheckPath: /api/actuator/health
     envVars:
       - key: SPRING_PROFILES_ACTIVE
@@ -14,15 +12,15 @@ services:
         value: 8888
       - key: SPRING_DATASOURCE_URL
         sync: false
-        value: jdbc:mysql://xxxxxx.tidbcloud.com:4000/snvec_student_platform?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+        value: jdbc:mysql://gateway01.ap-northeast-1.prod.aws.tidbcloud.com:4000/snvec_student_platform?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
       - key: SPRING_DATASOURCE_USERNAME
         sync: false
-        value: root
+        value: fDqMarNRMypfEJb.root
       - key: SPRING_DATASOURCE_PASSWORD
         sync: false
-        value: root
+        value: kUjjc9sM6IrXgfm3
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ALLOWED_ORIGINS
         sync: false
-        value: https://your-vercel-app.vercel.app
+        value: https://student-platform.vercel.app
